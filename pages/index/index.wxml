@@ -1,0 +1,17 @@
+<view hidden="{{witchPage != 'home'}}">
+  <home />
+</view>
+<view hidden="{{witchPage != 'bbs'}}">
+  <bbs />
+</view>
+<view hidden="{{witchPage != 'postPage'}}">
+  <postPage />
+</view>
+<view hidden="{{witchPage != 'chatMsg'}}">
+  <text>chat title</text>
+  <chatMsg />
+</view>
+<view hidden="{{witchPage != 'my'}}">
+  <my />
+</view>
+<tab-bar bind:clickTabItem="tabBarListener" isSwitchTab="{{false}}" list="{{tabBar.list}}"></tab-bar>

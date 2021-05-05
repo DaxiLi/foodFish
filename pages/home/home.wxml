@@ -1,0 +1,22 @@
+<l-search-bar placeholder="搜索" shape="circle" show-cancel="{{false}}"></l-search-bar>
+
+<swiper class="top-notice" indicator-dots="{{true}}">
+  <swiper-item wx:for="{{topNoticeList}}" wx:for-item="item">
+    <l-card type="cover" image="{{item.image}}" title="{{item.title}}">
+      <view class="content">
+        {{item.content}}
+      </view>
+    </l-card>
+  </swiper-item>
+</swiper>
+
+<view class="show-card">
+  <l-sticky scrollTop="200">
+    <l-sticky-item top="200rpx">
+      <l-segment  bind:linchange="segmentChanged" slot="header" scrollable="{{true}}" has-line="{{false}}" even="{{false}}">
+        <l-segment-item wx:for="{{segmentList}}" wx:for-item="item" key="{{item.slug}}" tab="{{item.status}}" />
+      </l-segment>
+      <l-water-flow slot="body" generic:l-water-flow-item="card" />
+    </l-sticky-item>
+  </l-sticky>
+</view>

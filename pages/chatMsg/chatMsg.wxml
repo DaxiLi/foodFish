@@ -1,0 +1,49 @@
+<!--pages/chatMsg/chatMsg.wxml-->
+<!--pages/chat/chat.wxml-->
+<view wx:if="{{msg.comtyMsg.length() != 0}}" class="community-msg-box">
+  <l-slide-view wx:for="{{msg.comtyMsg}}" wx:for-item="item" height="120rpx" width="750rpx" slide-width="340">
+    <view slot="left" class="left">
+      <view class="msg-avatar">
+        <image style="width: 80rpx; height: 74rpx; display: inline-block; box-sizing: border-box; left: NaNrpx; top: NaNrpx"  class="msg-avatar-img" scr="{{item.faceImgUrl}}"/>
+      </view>
+      <view class="msg-body">
+        <text class="msg-title">{{item.fromUserName}}</text>
+        <text class="msg-content">{{item.content}}</text>
+      </view>
+      <view class="msg-detail-box">
+        <image class="msg-detail-img" src="{{item.indexImgUrl}}"></image>
+      </view>
+    </view>
+
+    <view slot="right" class="right">
+      <text>喜欢</text>
+      <text>分享</text>
+      <text>删除</text>
+    </view>
+  </l-slide-view>
+</view>
+
+<view wx:if="{{msg.comtyMsg.length() != 0}}" style="background-color:lightgrey;min-height:10rpx;" ></view>
+<!-- 
+<view class="privaty-msg-box">
+  <l-slide-view  wx:for="{{msg.privary}}" wx:for-item="item"  height="140" width="750" slide-width="340">
+    <view slot="left" class="left">
+      <view class="msg-avatar">
+        <image class="msg-avatar-img" scr="{{item.faceImgUrl}}"/>
+      </view>
+      <view class="msg-body">
+        <text class="msg-title">{{item.fromUserName}}</text>
+        <text class="msg-content">{{item.content}}</text>
+      </view>
+      <view class="msg-detail-box">
+        <image class="msg-detail-img" src="{{item.indexImgUrl}}"></image>
+      </view>
+    </view>
+    <view slot="right" class="right">
+      <text>喜欢</text>
+      <text>分享</text>
+      <text>删除</text>
+    </view>
+  </l-slide-view>
+
+</view> -->

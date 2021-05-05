@@ -1,0 +1,50 @@
+/* template/showCard.wxss */
+
+
+.card{
+  border-radius: 10rpx;
+  max-width: 352rpx;
+  min-width: 352rpx;
+  margin-bottom: 20rpx;
+  margin-top: 10rpx;
+}
+
+.card-image{
+  border-radius: 20rpx;
+  width: 352rpx;
+}
+
+
+.card-short-content{
+  font-size: medium;
+  margin-bottom: 8rpx;
+  /* background-color: yellow; */
+  word-break: break-all;
+  overflow: hidden;
+
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:2; /*设置超出两行进行隐藏*/
+}
+
+.card-info{
+  font-size: 26rpx;
+  margin-bottom: 8rpx;
+}
+.card-info .card-price{
+  color: red;
+}
+.card-user{
+  /* max-height: 10rpx; */
+  font-size:small
+}
+.card-user-haed{
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 10rpx;
+}
+.user-location{
+  float: right;
+}
+

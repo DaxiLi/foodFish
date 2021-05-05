@@ -1,0 +1,29 @@
+/* pages/chatMsg/chatMsg.wxss */
+.community-msg-box{
+background-color: blue;
+min-height: 500rpx;
+}
+
+
+
+.left{
+  display: flex;
+  flex-direction: row;
+  min-height: 100rpx;
+}
+
+.left .msg-avatar{
+  background-color: black;
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.left .msg-body{
+  width: 590rpx;
+  height: 120;
+  
+}
+.left .msg-detail-box{
+  width: 80rpx;
+  background-color: yellow;
+}

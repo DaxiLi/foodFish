@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "tab-bar":"../../template/tab-bar/index",
+    "home":"/pages/home/home",
+    "bbs":"/pages/bbs/bbs",
+    "postPage":"/pages/postGoods/postGoods",
+    "my":"/pages/my/my",
+    "chatMsg":"/pages/chatMsg/chatMsg"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/bbs/bbs",
+    "pages/postGoods/postGoods",
+    "pages/my/my",
+    "pages/logs/logs",
+    "pages/search/search",
+    "pages/home/home",
+    "pages/chatMsg/chatMsg"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle": "black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
