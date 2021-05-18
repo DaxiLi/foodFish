@@ -1,17 +1,17 @@
 <!--template/showCard.wxml-->
 <!-- <text>this is card</text> -->
 <view class="card">
-    <image class="card-image" src="{{data.userHead}}" mode="widthFix" lazy-load="true">image</image>
-    <view class="card-short-content">{{data.shortComent}}</view>
+    <image class="card-image" src="{{data.url}}" mode="widthFix" lazy-load="true">image</image>
+    <view class="card-short-content">{{data.title}}</view>
     <view class="card-info">
         <l-price unit="￥" value="{{data.price}}" unit-color="red" value-color="red" />
         <text>  </text>
-        <l-price unit="￥" value="{{data.oldPrice}}" unit-color="grey" value-color="grey" deleted="true" size="24" />
+        <l-price unit="￥" value="{{data.oldprice}}" unit-color="grey" value-color="grey" deleted="true" size="24" />
 
     </view>
     <view class="card-user">
-        <image class="card-user-haed" src="{{data.userHead}}" mode="widthFix" lazy-load="true"></image>
+        <image class="card-user-haed" src="{{fileUrl + data.userHead}}" mode="widthFix" lazy-load="true"></image>
         <text>{{data.userName}}</text>
-        <text class="user-location">{{data.goodsLocation}}</text>
+        <text class="user-location">{{data.place}}</text>
     </view>
 </view>

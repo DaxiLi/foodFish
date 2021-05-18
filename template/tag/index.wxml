@@ -1,0 +1,7 @@
+<view style="display:flex">
+  <view class="l-tag l-tag-touch  select l-select-class l-tag-plain"  style="{{height?'line-height:'+height+'rpx;height:'+height+'rpx;':''}}{{plain?'color:'+fontColor+';border-color:'+fontColor:'background-color:'+bgColor+';color:'+fontColor}}" mut-bind:tap="handleTap">
+    <view class="{{location==='left'?'content':'content-l'}}" style="{{iconName?'line-height:0':''}}">
+      <slot/>
+    </view>
+  </view>
+</view>

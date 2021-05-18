@@ -1,0 +1,56 @@
+<!--pages/postDetail/postDetail.wxml-->
+<view class="main">
+  <view class="input-box-title">
+    <textarea value="{{titleText}}" type="text" value="{{textarea}}" placeholder-style="font-size: 32rpx" placeholder="为你的物品写一个标题吧..."
+      maxlength="100" auto-focus="{{true}}" auto-height="{{false}}" cursor-spacing="10" bindinput="handleInputChange"
+      bindblur="titleInputBlur" bindconfirm="titleInputBlur"/>
+  </view>
+  <view class="input-box-content">
+    <textarea value="{{contentText}}" type="text" value="{{textarea}}" placeholder-style="font-size: 32rpx" placeholder="介绍一下你的东西吧..."
+      maxlength="1500" auto-focus="{{false}}" auto-height="{{false}}" cursor-spacing="10" bindinput="handleInputChange"
+      bindblur="contentInputBlur" bindconfirm="contentInputBlur"/>
+  </view>
+  <view class="pick-image-box">
+    <image-picker id="img-picker" urls="{{imgUrl}}" bind:linchange="imgpickeradd" bind:linremove="imgpickerremove" mode="aspectFill"></image-picker>
+  </view>
+</view>
+<view class="slug-and-condition">
+  <view class="slug">
+    <text>分类</text>
+    <scroll-view scroll-x="true" enable-flex="true">
+      <view catchtap="tagstab" wx:for="{{slugList}}" wx:for-index="idx" wx:for-item="item" data-key="{{item.slug}}"
+        id="{{idx}}" class="tags {{item.select ? 'tags-select' : 'tags-unselect'}}">
+        {{item.status}}
+      </view>
+      <!-- <tag wx:for="{{slugList}}" wx:for-item="item" name="{{item.status}}"   bind:lintap="tagstab" size="mini" shape="circle" type="touch" plain="{{true}}" select="true" l-select-class="tag-select">{{item.status}}</tag> -->
+    </scroll-view>
+  </view>
+
+  <view class="slug">
+    <text>位置</text>
+    <scroll-view scroll-x="true" enable-flex="true">
+      <view catchtap="placetab" wx:for="{{placeList}}" wx:for-index="idx" wx:for-item="item" data-key="{{item.slug}}"
+        id="{{idx}}" class="tags {{placeActive == idx ? 'tags-select' : 'tags-unselect'}}">
+        {{item.status}}
+      </view>
+    </scroll-view>
+  </view>
+
+  <view class="price" bindtap="pricetab" >
+    <text>价格</text>
+    <input wx:if="{{!showOrInputPrice}}" maxlength="10" bindconfirm="inputbox" bindblur="inputbox" type="digit" placeholder="{{price == 0 ? '请输入价格' : price}}" value="{{price == 0 ? null : price}}" class="show-price"/>
+    <price bindtap="pricetab" wx:if="{{showOrInputPrice}}" class="show-price" unit="￥" value="{{price}}" unit-color="red" value-color="red" autofix reserve-digit="2" size="32" />
+  </view>
+  <view class="price" bindtap="oldpricetab" >
+    <text>原价</text>
+    <input wx:if="{{!oldshowOrInputPrice}}" maxlength="10" bindconfirm="oldPriceInputBox" bindblur="oldinputbox" type="digit" placeholder="{{oldPrice == 0 ? '请输入价格' : oldPrice}}" value="{{oldPrice == 0 ? null : oldPrice}}" class="show-price"/>
+    <price bindtap="oldpricetab" wx:if="{{oldshowOrInputPrice}}" class="show-price" unit="￥" value="{{oldPrice}}" unit-color="red" value-color="red" autofix reserve-digit="2" size="32" />
+  </view>
+
+  <button class="btn-cancel" size="mini">取消</button>
+<button bindtap="postGood" class="btn-post" size="mini">发布</button>
+</view>
+
+
+<view class="bottom">
+</view>

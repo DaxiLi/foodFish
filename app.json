@@ -1,19 +1,65 @@
 {
   "pages": [
-    "pages/index/index",
+    "pages/home/home",
+    "pages/myDeals/myDeals",
+    "pages/postDetail/postDetail",
     "pages/bbs/bbs",
     "pages/postGoods/postGoods",
     "pages/my/my",
-    "pages/logs/logs",
     "pages/search/search",
-    "pages/home/home",
-    "pages/chatMsg/chatMsg"
+    "pages/chatMsg/chatMsg",
+    "pages/goodDetail/goodDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
+    "navigationBarTitleText": "FOODWEGO",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "custom": true,
+    "color": "#000000",
+    "selectedColor": "#000000",
+    "backgroundColor": "#000000",
+    "list": [
+      {
+        "pageName": "home",
+        "pagePath": "pages/home/home",
+        "text": "逛一逛",
+        "iconPath": "/assest/icon/eye.png",
+        "selectedIconPath": "/assest/icon/close.png"
+      },
+      {
+        "pageName": "bbs",
+        "pagePath": "pages/bbs/bbs",
+        "text": "发现",
+        "iconPath": "/assest/icon/ellipsis.png",
+        "selectedIconPath": "/assest/icon/close.png"
+      },
+      {
+        "pageName": "postPage",
+        "pagePath": "pages/postGoods/postGoods",
+        "text": "发布",
+        "style": "circle",
+        "iconPath": "/assest/icon/add.png",
+        "selectedIconPath": "/assest/icon/close.png"
+      },
+      {
+        "pageName": "chatMsg",
+        "pagePath": "pages/chatMsg/chatMsg",
+        "text": "消息",
+        "redDot": "3",
+        "iconPath": "/assest/icon/comment.png",
+        "selectedIconPath": "/assest/icon/close.png"
+      },
+      {
+        "pageName": "my",
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "/assest/icon/user.png",
+        "selectedIconPath": "/assest/icon/close.png"
+      }
+    ]
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

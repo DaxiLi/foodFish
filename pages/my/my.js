@@ -1,19 +1,25 @@
 import weRequest from '../../utils/weRequest';
 
 const app = getApp();
-const config = require("../../config.js");
+const config = require("../../config.js"),
+setting = require('../../utils/setting');
+console.log(setting);
 Page({
-
       /**
        * 页面的初始数据
        */
       data: {
+            myDealGood: {
+                  url: getApp().globalData.fileUrl +  "9bfc99d13bd79328fd441e5f98babd3d1621181227.jpg",
+                  title: "一只小乌龟",
+                  content: "这是商品描述,忍痛出一只可爱小乌龟，很好养，非常可爱，还有腹肌哦！"
+            },
             userInfo: {},
             hasUserInfo: false,
             canIUse: wx.canIUse('button.open-type.getUserInfo'),
             canIUseGetUserProfile: false,
             canIUseOpenData: wx.canIUse('open-data.type.userAvatarUrl') && wx.canIUse('open-data.type.userNickName') // 如需尝试获取用户信息可改为false
-            ,
+                  ,
             gridItemFiltList: [{
                         key: "one",
                         num: 0,
@@ -49,9 +55,21 @@ Page({
             openid: '',
             roomlist: []
       },
+      tabmydeal:function(){
+            wx.navigateTo({
+              url: '../myDeals/myDeals',
+            })
+      },
       login(e) {
+            wx.showToast({
+                  title: '登录成功',
+            })
+            // return;
             console.log("start request");
             console.log(weRequest.nickName);
+            weRequest.login();
+            var uid = wx.getStorageSync('UID');
+            console.log(uid);
             weRequest.request({
                   url: app.globalData.apiUrl,
                   showLoading: true,
@@ -99,7 +117,4 @@ Page({
                   })
             }
       },
-
-
-
 })

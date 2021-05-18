@@ -1,28 +1,47 @@
-<view class="userinfo">
-	<block wx:if="{{canIUseOpenData}}" calss="userinfo-opendata">
-		<view class="userinfo-avatar" bindtap="bindViewTap">
-			<open-data type="userAvatarUrl"></open-data>
+<view id="my" style="min-height:{{wx.getSystemInfoSync().screenHeight}}px;">
+	<view class="userinfo">
+		<block wx:if="{{canIUseOpenData}}" calss="userinfo-opendata">
+			<view class="userinfo-avatar" bindtap="bindViewTap">
+				<open-data type="userAvatarUrl"></open-data>
+			</view>
+			<open-data type="userNickName"></open-data>
+		</block>
+		<block wx:elif="{{!hasUserInfo}}">
+			<button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
+			<button wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+			<view wx:else> 请使用1.4.4及以上版本基础库 </view>
+		</block>
+		<block wx:else>
+			<image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+			<text class="userinfo-nickname">{{userInfo.nickName}}</text>
+		</block>
+	</view>
+
+	<grid show-border="{{false}}" is-hover="{{true}}" row-num="4">
+		<grid-item wx:for="{{gridItemFiltList}}" wx:for-item="item" key="{{item.key}}" slot="{{item.key}}">
+			<text class="grid-item-favo">{{item.num}}</text>
+			<text class="grid-item-tag">{{item.text}}</text>
+		</grid-item>
+	</grid>
+
+	<view style="background-color:lightgrey;min-height:10rpx;max-height:10rpx;"></view>
+
+	<view class="my-deal">
+		<text>我的发布</text>
+		<icon bindtap="tabmydeal" name="right"></icon>
+		<card wx:if="{{myDealGood != null}}" l-class="card-css" full="{{true}}" image="{{myDealGood.url}}" title="{{myDealGood.title}}">
+			<view class="card-content">
+				{{myDealGood.content}}
+			</view>
+		</card>
+		<view wx:else class="card-no-deal">
+			你还没有发布过商品
 		</view>
-		<open-data type="userNickName"></open-data>
-	</block>
-	<block wx:elif="{{!hasUserInfo}}">
-		<button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
-		<button wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-		<view wx:else> 请使用1.4.4及以上版本基础库 </view>
-	</block>
-	<block wx:else>
-		<image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-		<text class="userinfo-nickname">{{userInfo.nickName}}</text>
-	</block>
+
+	</view>
+	<view style="background-color:lightgrey;min-height:10rpx;max-height:10rpx;"></view>
+
+
+	<button class="btn-login" type="primary" bind:tap="login">login</button>
+
 </view>
-
-<grid show-border="{{false}}" is-hover="{{true}}" row-num="4">
-	<grid-item wx:for="{{gridItemFiltList}}" wx:for-item="item" key="{{item.key}}" slot="{{item.key}}">
-		<text class="grid-item-favo">{{item.num}}</text>
-		<text class="grid-item-tag">{{item.text}}</text>
-	</grid-item>
-</grid>
-
-<view style="background-color:lightgrey;min-height:10rpx;max-height:10rpx;"></view>
-
-<button bind:tap="login" style="position: relative; left: 1rpx; top: 742rpx">login</button>

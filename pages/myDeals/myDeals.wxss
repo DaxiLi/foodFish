@@ -1,0 +1,127 @@
+/* pages/myDeals/myDeals.wxss */
+#my-deals{
+  margin:20rpx;
+  background-color: white;
+  border-radius: 15rpx;
+}
+page{
+  background-color: rgb(226, 234, 235);
+}
+.card{
+  display: flex;
+  flex-direction: column;
+}
+.card-good{
+  display: flex;
+  flex-direction: row;
+  max-height: 300rpx;
+}
+
+.card-good-img{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* position: absolute; */
+  width: 200rpx;
+  height: 200rpx;
+  margin: 10rpx;
+}
+
+.card-good-detail{
+  width: 500rpx;
+}
+.card-good-detail-title{
+  font-size: medium;
+
+}
+.card-good-detail-content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: small;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.card-good-detail-price{
+  float: right;
+  float: inline-end;
+  margin-right: 6%;
+  margin-top: 10%;
+}
+
+.card-opt{
+  display: flex;
+  /* flex-direction: row-reverse; */
+}
+.card-space{
+  min-width: 50%;
+}
+.card-opt button{
+  width: 50rpx;
+  height: 70rpx;
+  float: right;
+  background-color: white;
+  font-size: 10rpx;
+  font-style:initial;
+  border: thin;
+  border-color: black;
+  
+  border-bottom-left-radius: 15rpx;
+}
+
+
+.change-price{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: white;
+  min-width: 600rpx;
+  min-height: 250rpx;
+  border-radius: 20rpx;
+}
+
+.price-old-price{
+  width: 100%;
+  margin-left: 40rpx;
+  margin-bottom: 30rpx;
+}
+
+.price-new-price{
+  display: flex;
+  flex-direction: row;
+  /* justify-content: center; */
+  width: 100%;
+  margin-left: 40rpx;
+  margin-bottom: 30rpx;
+}
+
+.price-new-price text{
+/* max-width: 80rpx; */
+display: inline;
+
+}
+
+.price-new-price input{
+  max-width: 200rpx;
+  border: 0;
+  border-bottom: 3rpx;
+  border-style:solid;
+  }
+
+  .change-price button{
+    background-color: yellow;
+    border-radius: 16rpx;
+    margin: 20rpx;
+  }
+.pop-close{
+  display: flex;
+  /* flex-direction: column-reverse; */
+  justify-content: right;
+    float: left;
+  margin: 20rpx;
+  }

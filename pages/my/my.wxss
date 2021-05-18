@@ -1,3 +1,8 @@
+#my{
+  display: flex;
+  flex-direction: column;
+  min-height: ;
+}
 .userinfo {
   display: flex;
   flex-direction: column;
@@ -12,3 +17,35 @@
   margin: 20rpx;
   border-radius: 50%;
 }
+
+.my-deal{
+  min-height: 100rpx;
+  margin: 20rpx;
+}
+
+.my-deal icon{
+  float: right;
+}
+.card-css{
+  margin-top: 10rpx;
+  width: 750rpx;
+  background-color: rgb(245, 245, 245);
+  border-radius: 15rpx;
+  border-color: blue;
+}
+.card-content{
+  font-size: small;
+}
+.card-no-deal{
+  height: 80rpx;
+  display: flex;
+  justify-content: center;
+}
+
+
+
+.btn-login{
+  /* position: relative;
+  bottom: 50rpx; */
+}
+

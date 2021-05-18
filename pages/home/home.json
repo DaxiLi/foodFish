@@ -7,6 +7,8 @@
     "l-segment-item":"/miniprogram_npm/lin-ui/segment-item/index",
     "l-sticky":"/miniprogram_npm/lin-ui/sticky",
     "l-sticky-item":"/miniprogram_npm/lin-ui/sticky-item",
-    "l-card":"/miniprogram_npm/lin-ui/card/index"
-  }
+    "l-card":"/miniprogram_npm/lin-ui/card/index",
+    "l-status-show":"../../template/status-show/index"
+  },
+  "enablePullDownRefresh": true
 }

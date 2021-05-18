@@ -1,0 +1,110 @@
+/* pages/postDetail/postDetail.wxss */
+
+.main{
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+}
+.input-box-title{
+  height:fit-content;
+  overflow: hidden;
+  max-height: 40rpx;
+}
+.input-box-title textarea{
+  overflow: hidden;
+  word-break:break-all;
+  width: auto;
+  height: 42rpx;
+}
+.input-box-content{
+  min-height: 300rpx;
+}
+
+.input-box textarea{
+  height: 300rpx;
+  width: 100%;
+  font-size: x-large;
+}
+
+.pick-image-box{
+  margin-top: 20rpx;
+}
+image-picker{
+  margin-top: 150rpx;
+}
+
+
+.slug-and-condition{
+  margin-top: 20rpx;
+}
+.slug{
+  /* display: flex;
+  flex-direction: row; */
+  /* width: auto; */
+  height: 100rpx;
+}
+.slug text{
+  /* min-width: 60rpx; */
+  /* width:fit-content; */
+  font: bold;
+  font-size: medium;
+  margin: 10rpx;
+}
+.slug scroll-view{
+  height: 60rpx;
+  display: flex;
+  flex-direction: row;
+  width: auto;
+}
+.slug tag{
+  font-size: 20rpx;
+  margin: 10rpx;
+  border: 0;
+}
+
+.tags{
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 80rpx;
+  height: 42rpx;
+  font-size: 20rpx;
+  border-radius: 25rpx;
+  padding: 0 16rpx;
+  margin: 10rpx;
+}
+.tags-unselect{
+   color: rgb(99, 83, 83);
+  background-color: rgb(255, 223, 223);
+}
+.tags-select{
+  background-color: rgb(255, 233, 223);
+  color: red;
+}
+
+.price{
+margin: 15rpx;
+}
+.price text{
+}
+.show-price{
+  float: right;
+}
+
+
+
+.bottom{
+  width: 100%;
+  min-height: 10rpx;
+  margin-bottom: 100rpx;
+}
+
+
+.btn-cancel{
+  margin-top: 100rpx;
+  float: left;
+}
+
+.btn-post{
+  margin-top: 100rpx;
+  float:right;
+}

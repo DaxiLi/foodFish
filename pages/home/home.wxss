@@ -4,8 +4,22 @@
 
 } */
 
-.top-notice{
+.main-contain {
+  background-color: rgb(241, 241, 241);
+}
+
+.top-notice {
   height: 420rpx;
+}
+
+.status-show {
+  min-width: 750rpx;
+  align-items: center;
+}
+
+
+.show-card {
+  /* background-color: white; */
 }
 
 .card-dot {
@@ -65,21 +79,32 @@
   -webkit-line-clamp: 5;
 }
 
-.avter-share-container{
+.avter-share-container {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
 }
 
-.like-container{
+.like-container {
   display: flex;
   flex-direction: row;
   margin-left: 40rpx;
   align-items: center
 }
 
-.number{
+.number {
   color: #666;
   font-size: 24rpx;
   margin-left: 12rpx;
+}
+
+.reach-bottom{
+ width: 750rpx;
+ display: flex;
+ justify-content: center;
+ bottom: 100rpx;
+ padding-bottom: 300rpx;
+}
+.reach-bottom text{
+  float: center; 
 }

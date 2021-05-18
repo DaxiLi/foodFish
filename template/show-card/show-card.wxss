@@ -7,10 +7,12 @@
   min-width: 352rpx;
   margin-bottom: 20rpx;
   margin-top: 10rpx;
+  background-color: rgb(255, 255, 255);
 }
 
 .card-image{
-  border-radius: 20rpx;
+  border-top-left-radius: 20rpx;
+  border-top-right-radius: 20rpx;
   width: 352rpx;
 }
 

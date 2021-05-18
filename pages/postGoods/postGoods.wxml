@@ -1,5 +1,6 @@
 <!--pages/postGoods/postGoods.wxml-->
-<text>pages/postGoods/postGoods.wxml</text>
+<!-- <text>pages/postGoods/postGoods.wxml</text> -->
+<postDetail></postDetail>
 <l-arc-popup>
 
 </l-arc-popup>

@@ -1,0 +1,44 @@
+<!--pages/myDeals/myDeals.wxml-->
+<view id="my-deals" style="min-height:{{wx.getSystemInfoSync().windowHeight}};">
+
+
+  <view class="card" wx:for="{{dealList}}" wx:for-item="item" key="{{item.gid}}">
+    <view class="card-good">
+      <image lazy-load="{{true}}" src="{{item.url}}" class="card-good-img" mode="aspectFill"></image>
+      <view class="card-good-detail">
+        <text class="card-good-detail-title">小乌龟一只</text>
+        <view class="card-good-detail-content">
+          {{item.content}}
+        </view>
+        <price class="card-good-detail-price" unit="￥" value="{{item.price}}" unit-color="red" value-color="red" autofix
+          reserve-digit="2" size="32" />
+      </view>
+    </view>
+    <view style="background-color:lightgrey;min-height:2rpx;max-height:2rpx;"></view>
+
+    <view class="card-opt">
+      <view class="card-space"></view>
+      <button data-key="{{item}}" bindtap="tabDelGood" plain="{{true}}" size="mini">降价</button>
+      <button data-key="{{item}}" bindtap="delGood" plain="{{true}}" size="mini">删除</button>
+      <button data-key="{{item}}" bindtap="editGood" plain="{{true}}" size="mini">编辑</button>
+    </view>
+  </view>
+  <status-show show="{{0 == dealList.length}}" type="data">
+  </status-show>
+  <pop-up show="{{changePricePop}}" locked="{{true}}" content-align="center">
+    <view class="change-price">
+      <icon bindtap="popClose" class="pop-close" name="close"></icon>
+      <view class="price-old-price">
+        <text>原价：</text>
+        <price class="price-tag" unit="￥" value="{{changePriceItem.price}}" unit-color="red" value-color="red" autofix
+          reserve-digit="2" size="32" />
+      </view>
+      <view class="price-new-price">
+        <text>降价至：</text>
+        <input maxlength="10" bindconfirm="inputPrice" bindblur="inputPrice" type="digit"
+          placeholder="{{price == 0 ? '请输入价格' : price}}" value="{{price == 0 ? null : price}}" class="input-price" />
+      </view>
+      <button bindtap="confirmChangePrice">确定</button>
+    </view>
+  </pop-up>
+</view>

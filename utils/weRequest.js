@@ -1,10 +1,13 @@
 import weRequest from 'we-request';
+const setting =  require('./setting');
+ const url = setting.apiUrl;
+// console.log(setting);
 
 weRequest.init({
     // ...// [可选] 存在localStorage的session名称，且CGI请求的data中会自动带上以此为名称的session值；可不配置，默认为session
     sessionName: "session",
     // [可选] 请求URL的固定前缀；可不配置，默认为空
-    urlPerfix: "http://127.0.0.1:8123/wxapi/",
+    urlPerfix: setting.apiUrl,
     // [必填] 触发重新登录的条件，res为CGI返回的数据
     loginTrigger: function (res) {
         // 此处例子：当返回数据中的字段errcode等于-1，会自动触发重新登录
@@ -23,14 +26,20 @@ weRequest.init({
         // [必填] CGI中返回的session值
         success: function (res) {
             // 此处例子：CGI返回数据中的字段session即为session值
+            console.log("登录成功：");
+            console.log(res);
             wx.setStorage({
                 key:"OPEN_ID",
                 data:res.openId
             })
-            getApp().globalData.OPEN_ID = res.openId;
+            wx.setStorage({
+                key:"UID",
+                data:res.uid
+            })
+            // getApp().globalData.OPEN_ID = res.openId;
             console.log("login end")
             console.log(res.session);
-            console.log(res.openId);
+            // console.log(res.openId);
             console.log(res)
             return res.session;
         }

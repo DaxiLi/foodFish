@@ -2,6 +2,8 @@
   "usingComponents": {
     "l-avatar":"/miniprogram_npm/lin-ui/avatar/index",
     "grid":"/miniprogram_npm/lin-ui/grid/index",
-    "grid-item":"/miniprogram_npm/lin-ui/grid-item/index"
+    "grid-item":"/miniprogram_npm/lin-ui/grid-item/index",
+    "icon":"../../template/icon/index",
+    "card":"../../template/card/index"
   }
 }

@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "l-arc-popup":"/miniprogram_npm/lin-ui/arc-popup/index"
+    "l-arc-popup":"/miniprogram_npm/lin-ui/arc-popup/index",
+    "postDetail":"../postDetail/postDetail"
   }
 }

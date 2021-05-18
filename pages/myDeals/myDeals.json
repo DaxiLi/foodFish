@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "card": "../../template/card/index",
+    "status-show":"../../template/status-show/index",
+    "price":"../../template/price/index",
+    "pop-up":"../../template/popup/index",
+    "icon":"../../template/icon/index"
+
+  }
+}

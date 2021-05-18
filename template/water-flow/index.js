@@ -1,4 +1,4 @@
-import eventUtil from "../../miniprogram_npm/lin-ui/core/utils/event-util";
+import eventUtil from "../core/utils/event-util";
 Component({
   properties: {
     columnGap: {
