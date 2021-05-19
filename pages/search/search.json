@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "card":"../../template/show-card/show-card",
+    "l-water-flow": "../../template/water-flow/index"
+  }
 }

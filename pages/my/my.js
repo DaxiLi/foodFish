@@ -2,7 +2,8 @@ import weRequest from '../../utils/weRequest';
 
 const app = getApp();
 const config = require("../../config.js"),
-setting = require('../../utils/setting');
+      setting = require('../../utils/setting'),
+      netools = require('../../utils/netools');
 console.log(setting);
 Page({
       /**
@@ -10,7 +11,7 @@ Page({
        */
       data: {
             myDealGood: {
-                  url: getApp().globalData.fileUrl +  "9bfc99d13bd79328fd441e5f98babd3d1621181227.jpg",
+                  url: getApp().globalData.fileUrl + "9bfc99d13bd79328fd441e5f98babd3d1621181227.jpg",
                   title: "一只小乌龟",
                   content: "这是商品描述,忍痛出一只可爱小乌龟，很好养，非常可爱，还有腹肌哦！"
             },
@@ -55,18 +56,18 @@ Page({
             openid: '',
             roomlist: []
       },
-      tabmydeal:function(){
+      tabmydeal: function () {
             wx.navigateTo({
-              url: '../myDeals/myDeals',
+                  url: '../myDeals/myDeals',
             })
       },
       login(e) {
-            wx.showToast({
-                  title: '登录成功',
-            })
+            // wx.showToast({
+            //       title: '登录成功',
+            // })
             // return;
             console.log("start request");
-            console.log(weRequest.nickName);
+            // console.log(weRequest.nickName);
             weRequest.login();
             var uid = wx.getStorageSync('UID');
             console.log(uid);
@@ -88,6 +89,13 @@ Page({
                   }
             });
 
+      },
+      tabMyGood(e) {
+            console.log(e);
+            var gid = e.currentTarget.dataset;
+            wx.navigateTo({
+              url: '/pages/goodDetail/goodDetail?gid=' + gid
+            })
       },
       getUserProfile(e) {
             wx.getUserProfile({
@@ -116,5 +124,18 @@ Page({
                         canIUseGetUserProfile: true
                   })
             }
+            netools.getGoodsByUid(wx.getStorageSync('UID'), 1, 1)
+                  .then(res => {
+                        if (res.length != 0) {
+                              this.setData({
+                                    myDealGood: res[0]
+                              })
+                        } else {
+                              this.setData({
+                                    myDealGood: null
+                              })
+                        }
+
+                  })
       },
 })

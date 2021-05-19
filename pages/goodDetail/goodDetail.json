@@ -1,3 +1,8 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "status-show":"../../template/status-show/index",
+    "l-card":"../../template/card/index",
+    "l-icon":"../../template/icon/index",
+    "l-tag":"../../template/tag/index"
+  }
 }

@@ -9,6 +9,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    gid:null,
+    isPost:true, // 是发布还是编辑商品
     imgUrl:[],
     slugs: [],
     price: 0,
@@ -18,8 +20,8 @@ Page({
     contentText: "", // 输入框
     titleText: "",
     placeActive: -1, // 标记当前选择的位置
-    placeList: [],
-    slugList: [],
+    placeList: getApp().globalData.placeList,
+    slugList: getApp().globalData.slugList,
   },
   getSlugs: function () {
     var retval = [];
@@ -151,12 +153,20 @@ Page({
         links: data.imgUrl,
         title: data.titleText,
         content: data.contentText,
-        slugs: this.getSlugs()
+        slugs: this.getSlugs(),
       }
     };
+    if (!data.isPost){
+      console.log("set gid ");
+      console.log(good);
+      good.good.gid = data.gid;
+    }
+    good.good.uid = wx.getStorageSync('UID');
+    console.log(good);
+    var curl = data.isPost ? 'goods/post' : 'goods/updatepost'
     weRequest.request({
       method: "POST",
-      url: 'goods/post',
+      url: curl,
       showLoading: true,
       data: good,
       success: function (data) {
@@ -256,6 +266,14 @@ Page({
    */
   onLoad: function (options) {
     console.log("postdetail onload");
+    var slug = getApp().globalData.slugList;
+    var place = getApp().globalData.placeList;
+    console.log(slug);
+    console.log(place);
+    this.setData({
+      ['slugList']: slug,
+      ['placeList']: place
+    });
     console.log(options);
     if (options.gid == null || options.gid == ""){
       console.log("has no gid");
@@ -269,16 +287,14 @@ Page({
         }
       })
     }
-    
+    if (gid == -1){ // 从首页打开发布gid 为-1，直接跳过
+      return
+    }
     let that = this;
     console.log("getgoodbygid");
     netools.getGoodsByGid(options.gid)
     .then(res =>{
       var good = res;
-      
-      console.log("this");
-      console.log(this);
-      console.log(that);
       const uid = wx.getStorageSync('UID');
       console.log(uid);
       if (good.uid != uid){
@@ -293,12 +309,15 @@ Page({
         })
         return;
       }
+      console.log(good);
       that.setData({
+        gid:good.gid,
         price:good.price,
         oldPrice:good.oldprice,
         titleText:good.title,
         contentText:good.content,
-        imgUrl:good.urls
+        imgUrl:good.urls,
+        isPost:false
       })
     }).catch(res =>{
       console.log("获取失败");
@@ -332,9 +351,6 @@ Page({
     var place = getApp().globalData.placeList;
     console.log(slug);
     console.log(place);
-    for (var i = 0; i < slug.length; i++) {
-
-    }
     this.setData({
       ['slugList']: slug,
       ['placeList']: place

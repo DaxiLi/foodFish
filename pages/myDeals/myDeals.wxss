@@ -1,7 +1,6 @@
 /* pages/myDeals/myDeals.wxss */
 #my-deals{
   margin:20rpx;
-  background-color: white;
   border-radius: 15rpx;
 }
 page{
@@ -10,6 +9,9 @@ page{
 .card{
   display: flex;
   flex-direction: column;
+  background-color: white;
+  margin: 15rpx;
+  border-radius: 15rpx;
 }
 .card-good{
   display: flex;
@@ -20,6 +22,7 @@ page{
 .card-good-img{
   display: flex;
   justify-content: center;
+  border-radius: 25rpx;
   align-items: center;
   /* position: absolute; */
   width: 200rpx;
@@ -31,20 +34,29 @@ page{
   width: 500rpx;
 }
 .card-good-detail-title{
-  font-size: medium;
-
+  font-size: large;
+  display: -webkit-box;
+	color: #000000;
+	line-height: 40rpx;
+	word-break: break-all;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 .card-good-detail-content{
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: small;
+  font-size: medium;
   display: -webkit-box;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  word-break: break-all;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
+	font-size: 28rpx;
+	color: #000000;
+	word-break: break-all;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .card-good-detail-price{

@@ -1,1 +1,17 @@
 /* pages/search/search.wxss */
+
+
+
+.reach-bottom{
+  width: 750rpx;
+  display: flex;
+  justify-content: center;
+  bottom: 100rpx;
+  padding-bottom: 300rpx;
+ }
+ .reach-bottom text{
+   float: center; 
+ }
+
+
+ 

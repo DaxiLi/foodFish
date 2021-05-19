@@ -52,6 +52,7 @@ Component({
       }) : i && i()
     },
     onTapItem(t) {
+      console.log("tab water flow");
       eventUtil.emit(this, "linitemtap", {
         item: t.currentTarget.dataset.item
       })

@@ -16,4 +16,14 @@
       </view>
     </view>
   </view>
+
+
+
+  <pop-show show="{{postPopShow}}" content-align="bottom">
+    <view class="pop-show">
+      <button bindtap="tabPost">发布</button>
+      <button bindtap="tabCancel">取消</button>
+    </view>
+  </pop-show>
+
 </view>

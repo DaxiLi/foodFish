@@ -1,2 +1,7 @@
 <!--pages/search/search.wxml-->
-<text>pages/search/search.wxml</text>
+<!-- <text>pages/search/search.wxml</text> -->
+<l-water-flow bind:linitemtap="tabGood" slot="body" generic:l-water-flow-item="card" />
+<view class="reach-bottom" wx:if="{{reachBottom}}">
+  <text>到底了..</text>
+</view>
+<status-show show="{{error}}" type="product"></status-show>

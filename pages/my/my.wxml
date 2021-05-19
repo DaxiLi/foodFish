@@ -29,7 +29,7 @@
 	<view class="my-deal">
 		<text>我的发布</text>
 		<icon bindtap="tabmydeal" name="right"></icon>
-		<card wx:if="{{myDealGood != null}}" l-class="card-css" full="{{true}}" image="{{myDealGood.url}}" title="{{myDealGood.title}}">
+		<card bindtap="tabMyGood" wx:if="{{myDealGood != null}}" l-class="card-css" full="{{true}}" data-gid="{{myDealGood.gid}}" image="{{myDealGood.url}}" title="{{myDealGood.title}}">
 			<view class="card-content">
 				{{myDealGood.content}}
 			</view>

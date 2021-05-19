@@ -1,2 +1,37 @@
 <!--pages/goodDetail/goodDetail.wxml-->
-<text>pages/goodDetail/goodDetail.wxml</text>
+<!-- <text>pages/goodDetail/goodDetail.wxml</text> -->
+<view wx:if="{{!error}}" id="goodDetail">
+  <view class="user">
+    <l-card type="avatar" l-class="card" image="{{good.userHead}}" title="{{good.userName}}"
+      describe="{{pastDifTime}}前">
+      <!-- 此处为content -->
+      <view class="avter-content">
+        {{good.title}}
+        {{good.content}}
+      </view>
+      <image bindtap="tabImage" mode="widthFix" wx:for="{{good.urls}}" wx:for-item="item" wx:for-index="idx" src="{{item}}" data-idx="{{idx}}"></image>
+      <view class="avter-share-container">
+        <view class="like-container">
+          <l-icon name="like" color="#666" size="28" />
+          <view class="number">{{good.likenum}}喜欢</view>
+        </view>
+        <view class="like-container">
+          <l-icon name="default" color="#666" size="28" />
+          <view class="number">{{good.commentsnum}}评论</view>
+        </view>
+      </view>
+      <!-- <l-tag  shape="circle" 
+                bg-color="#f3f3f3" 
+                font-color="#3963BC" 
+                slot="more"
+                size="large">
+                + 关注
+        </l-tag> -->
+    </l-card>
+  </view>
+
+
+
+</view>
+<status-show show="{{error}}" type="error">
+</status-show>

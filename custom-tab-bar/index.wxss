@@ -40,3 +40,17 @@
   font-size: 24rpx;
   line-height: 1
 }
+
+.pop-show{
+  background-color: white;
+  width: 750rpx;
+  height: 750rpx;
+  /* margin-bottom: 106rpx; */
+}
+.pop-show button{
+  margin: 50rpx;
+  background-color: yellow;
+  float: left;
+}
+
+

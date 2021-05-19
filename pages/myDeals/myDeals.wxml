@@ -1,12 +1,10 @@
 <!--pages/myDeals/myDeals.wxml-->
-<view id="my-deals" style="min-height:{{wx.getSystemInfoSync().windowHeight}};">
-
-
-  <view class="card" wx:for="{{dealList}}" wx:for-item="item" key="{{item.gid}}">
+<view id="my-deals" >
+  <view bindtap="tabGood" class="card" wx:for="{{dealList}}" wx:for-item="item" data-gid="{{item.gid}}">
     <view class="card-good">
       <image lazy-load="{{true}}" src="{{item.url}}" class="card-good-img" mode="aspectFill"></image>
       <view class="card-good-detail">
-        <text class="card-good-detail-title">小乌龟一只</text>
+        <text class="card-good-detail-title">{{item.title}}</text>
         <view class="card-good-detail-content">
           {{item.content}}
         </view>
@@ -15,7 +13,6 @@
       </view>
     </view>
     <view style="background-color:lightgrey;min-height:2rpx;max-height:2rpx;"></view>
-
     <view class="card-opt">
       <view class="card-space"></view>
       <button data-key="{{item}}" bindtap="tabDelGood" plain="{{true}}" size="mini">降价</button>
@@ -23,8 +20,10 @@
       <button data-key="{{item}}" bindtap="editGood" plain="{{true}}" size="mini">编辑</button>
     </view>
   </view>
+
   <status-show show="{{0 == dealList.length}}" type="data">
   </status-show>
+
   <pop-up show="{{changePricePop}}" locked="{{true}}" content-align="center">
     <view class="change-price">
       <icon bindtap="popClose" class="pop-close" name="close"></icon>
@@ -41,4 +40,5 @@
       <button bindtap="confirmChangePrice">确定</button>
     </view>
   </pop-up>
+
 </view>

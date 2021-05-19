@@ -1,5 +1,6 @@
 Component({
   data: {
+    postPopShow:false,
     bgColor: null,
     bgImg: null,
     list: [{
@@ -75,6 +76,21 @@ Component({
       //   item: a
       // })
     },
+    tabPost(e){
+      console.log("tab post confirm");
+      this.setData({
+        postPopShow:false
+      });
+      wx.navigateTo({
+        url: '/pages/postDetail/postDetail?gid=-1',
+      })
+    },
+    tabCancel(e){
+      console.log("tab btn cancel");
+      this.setData({
+        postPopShow:false
+      })
+    },
     onTapItem(e) {
       // const i = t.currentTarget.dataset.index,
       //   url = this.data.list[i].pagePath;
@@ -88,9 +104,15 @@ Component({
       console.log(e);
       console.log(index);
       const url = this.data.list[index].pagePath;
+      if (index == 2){
+        this.setData({
+          postPopShow:true
+        })
+        return;
+      }
       wx.switchTab({url})
       this.setData({
-        selectedIndex: url
+        selectedIndex: index
       })
       // this.triggerEvent("clickTabItem", t.currentTarget.dataset.index,{ bubbles: true });
     }

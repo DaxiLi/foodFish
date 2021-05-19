@@ -1,4 +1,4 @@
-<l-search-bar placeholder="搜索" shape="circle" show-cancel="{{false}}"></l-search-bar>
+<l-search-bar placeholder="搜索" shape="circle" bind:linconfirm="searchStart" show-cancel="{{false}}"></l-search-bar>
   <view class="main-contain" style="min-height: {{wx.getSystemInfoSync().windowHeight}};">
   <swiper class="top-notice" indicator-dots="{{true}}">
     <swiper-item wx:for="{{topNoticeList}}" wx:for-item="item" wx:key="{{item.key}}">
@@ -21,7 +21,7 @@
           </l-status-show>
         </view>
         <view  hidden="{{goodsIsEmpty}}">
-          <l-water-flow  slot="body" generic:l-water-flow-item="card"/>
+          <l-water-flow bind:linitemtap="tabGood"	  slot="body" generic:l-water-flow-item="card"/>
         </view>
         <view class="reach-bottom" wx:if="{{reachBottom}}">
           <text>到底了..</text>

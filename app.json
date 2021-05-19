@@ -1,14 +1,14 @@
 {
   "pages": [
     "pages/home/home",
+    "pages/goodDetail/goodDetail",
     "pages/myDeals/myDeals",
     "pages/postDetail/postDetail",
     "pages/bbs/bbs",
     "pages/postGoods/postGoods",
     "pages/my/my",
     "pages/search/search",
-    "pages/chatMsg/chatMsg",
-    "pages/goodDetail/goodDetail"
+    "pages/chatMsg/chatMsg"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -23,21 +23,21 @@
     "backgroundColor": "#000000",
     "list": [
       {
-        "pageName": "home",
+        "page": "home",
         "pagePath": "pages/home/home",
         "text": "逛一逛",
         "iconPath": "/assest/icon/eye.png",
         "selectedIconPath": "/assest/icon/close.png"
       },
       {
-        "pageName": "bbs",
+        "page": "bbs",
         "pagePath": "pages/bbs/bbs",
         "text": "发现",
         "iconPath": "/assest/icon/ellipsis.png",
         "selectedIconPath": "/assest/icon/close.png"
       },
       {
-        "pageName": "postPage",
+        "page": "postPage",
         "pagePath": "pages/postGoods/postGoods",
         "text": "发布",
         "style": "circle",
@@ -45,7 +45,7 @@
         "selectedIconPath": "/assest/icon/close.png"
       },
       {
-        "pageName": "chatMsg",
+        "page": "chatMsg",
         "pagePath": "pages/chatMsg/chatMsg",
         "text": "消息",
         "redDot": "3",
@@ -53,7 +53,7 @@
         "selectedIconPath": "/assest/icon/close.png"
       },
       {
-        "pageName": "my",
+        "page": "my",
         "pagePath": "pages/my/my",
         "text": "我的",
         "iconPath": "/assest/icon/user.png",

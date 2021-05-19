@@ -6,7 +6,7 @@ const netools = require('../../utils/netools')
 Page({
   data: {
     segmentList: app.globalData.slugList,
-    reachBottom:false,
+    reachBottom: false,
     list: [],
     page: 1,
     size: 10,
@@ -25,46 +25,64 @@ Page({
     this.data.page = 1;
     this.data.segment = e.detail.activeKey;
     this.setData({
-      reachBottom:false,
-      goodsIsEmpty:false
+      reachBottom: false,
+      goodsIsEmpty: false
     })
     console.info("segment changed!")
     this.refreshGoodsList(true);
 
   },
-  refreshGoodsList(clear){
+  refreshGoodsList(clear) {
     console.log("以：" + this.data.segment + ";" + this.data.page + ";" + this.data.size + "发起请求");
     netools.getGoodsBySlug(this.data.segment, this.data.page, this.data.size)
-    .then(res => {
-      if (res.length == 0) {
-        if (this.data.page == 1){
+      .then(res => {
+        if (res.length == 0) {
+          if (this.data.page == 1) {
+            this.setData({
+              goodsIsEmpty: true
+            });
+            wx.lin.renderWaterFlow([], true);
+            return;
+          }
           this.setData({
-          goodsIsEmpty: true
-          });
-          wx.lin.renderWaterFlow([],true);
+            reachBottom: true
+          })
           return;
+        } else if (res.length < this.data.size) {
+          this.setData({
+            reachBottom: true
+          })
         }
-        this.setData({
-          reachBottom:true
+        this.data.page++;
+        console.log("bool ");
+        console.log(clear);
+        wx.lin.renderWaterFlow(res, clear, () => {
+          console.log("渲染成功");
+        });
+      }).catch(res => {
+        wx.showToast({
+          icon: "error",
+          title: '加载失败',
         })
-        return;
-      }else if (res.length < this.data.size){
-        this.setData({
-          reachBottom:true
-        })
-      }
-      this.data.page++;
-      console.log("bool ");
-      console.log(clear);
-      wx.lin.renderWaterFlow(res, clear, () => {
-        console.log("渲染成功");
-      });
-    }).catch(res => {
-      wx.showToast({
-        icon:"error",
-        title: '加载失败',
+        console.log(res);
       })
-      console.log(res);
+  },
+  // 点击搜索
+  searchStart(e){
+    console.log(e);
+    var key = e.detail.value;
+    console.log(key);
+    wx.navigateTo({
+      url: '/pages/search/search?s=' + key,
+    })
+  },
+  //商品卡片点击
+  tabGood(e) {
+    console.log(e);
+    var gid = e.detail.item.gid;
+    console.log(gid);
+    wx.navigateTo({
+      url: '/pages/goodDetail/goodDetail?gid=' + gid,
     })
   },
   // 事件处理函数
@@ -106,11 +124,11 @@ Page({
     wx.hideNavigationBarLoading();
     this.data.page = 1;
     this.setData({
-      reachBottom:false,
-      goodsIsEmpty:false
+      reachBottom: false,
+      goodsIsEmpty: false
     })
     this.refreshGoodsList(true);
-    wx.stopPullDownRefresh() ;
+    wx.stopPullDownRefresh();
   },
 
   /**

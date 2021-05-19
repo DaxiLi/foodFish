@@ -1,17 +1,18 @@
 <!--pages/postDetail/postDetail.wxml-->
 <view class="main">
   <view class="input-box-title">
-    <textarea value="{{titleText}}" type="text" value="{{textarea}}" placeholder-style="font-size: 32rpx" placeholder="为你的物品写一个标题吧..."
-      maxlength="100" auto-focus="{{true}}" auto-height="{{false}}" cursor-spacing="10" bindinput="handleInputChange"
-      bindblur="titleInputBlur" bindconfirm="titleInputBlur"/>
+    <textarea type="text" placeholder-style="font-size: 32rpx" placeholder="为你的物品写一个标题吧..." maxlength="100"
+      auto-focus="{{true}}" auto-height="{{false}}" cursor-spacing="10" bindinput="handleInputChange"
+      value="{{titleText}}" bindblur="titleInputBlur" bindconfirm="titleInputBlur" />
   </view>
   <view class="input-box-content">
-    <textarea value="{{contentText}}" type="text" value="{{textarea}}" placeholder-style="font-size: 32rpx" placeholder="介绍一下你的东西吧..."
-      maxlength="1500" auto-focus="{{false}}" auto-height="{{false}}" cursor-spacing="10" bindinput="handleInputChange"
-      bindblur="contentInputBlur" bindconfirm="contentInputBlur"/>
+    <textarea type="text" placeholder-style="font-size: 32rpx" placeholder="介绍一下你的东西吧..." maxlength="1500"
+      auto-focus="{{false}}" auto-height="{{false}}" cursor-spacing="10" value="{{contentText}}"
+      bindinput="handleInputChange" bindblur="contentInputBlur" bindconfirm="contentInputBlur" />
   </view>
   <view class="pick-image-box">
-    <image-picker id="img-picker" urls="{{imgUrl}}" bind:linchange="imgpickeradd" bind:linremove="imgpickerremove" mode="aspectFill"></image-picker>
+    <image-picker id="img-picker" urls="{{imgUrl}}" bind:linchange="imgpickeradd" bind:linremove="imgpickerremove"
+      mode="aspectFill"></image-picker>
   </view>
 </view>
 <view class="slug-and-condition">
@@ -36,19 +37,24 @@
     </scroll-view>
   </view>
 
-  <view class="price" bindtap="pricetab" >
+  <view class="price" bindtap="pricetab">
     <text>价格</text>
-    <input wx:if="{{!showOrInputPrice}}" maxlength="10" bindconfirm="inputbox" bindblur="inputbox" type="digit" placeholder="{{price == 0 ? '请输入价格' : price}}" value="{{price == 0 ? null : price}}" class="show-price"/>
-    <price bindtap="pricetab" wx:if="{{showOrInputPrice}}" class="show-price" unit="￥" value="{{price}}" unit-color="red" value-color="red" autofix reserve-digit="2" size="32" />
+    <input wx:if="{{!showOrInputPrice}}" maxlength="10" bindconfirm="inputbox" bindblur="inputbox" type="digit"
+      placeholder="{{price == 0 ? '请输入价格' : price}}" value="{{price == 0 ? null : price}}" class="show-price" />
+    <price bindtap="pricetab" wx:if="{{showOrInputPrice}}" class="show-price" unit="￥" value="{{price}}"
+      unit-color="red" value-color="red" autofix reserve-digit="2" size="32" />
   </view>
-  <view class="price" bindtap="oldpricetab" >
+  <view class="price" bindtap="oldpricetab">
     <text>原价</text>
-    <input wx:if="{{!oldshowOrInputPrice}}" maxlength="10" bindconfirm="oldPriceInputBox" bindblur="oldinputbox" type="digit" placeholder="{{oldPrice == 0 ? '请输入价格' : oldPrice}}" value="{{oldPrice == 0 ? null : oldPrice}}" class="show-price"/>
-    <price bindtap="oldpricetab" wx:if="{{oldshowOrInputPrice}}" class="show-price" unit="￥" value="{{oldPrice}}" unit-color="red" value-color="red" autofix reserve-digit="2" size="32" />
+    <input wx:if="{{!oldshowOrInputPrice}}" maxlength="10" bindconfirm="oldPriceInputBox" bindblur="oldinputbox"
+      type="digit" placeholder="{{oldPrice == 0 ? '请输入价格' : oldPrice}}" value="{{oldPrice == 0 ? null : oldPrice}}"
+      class="show-price" />
+    <price bindtap="oldpricetab" wx:if="{{oldshowOrInputPrice}}" class="show-price" unit="￥" value="{{oldPrice}}"
+      unit-color="red" value-color="red" autofix reserve-digit="2" size="32" />
   </view>
 
   <button class="btn-cancel" size="mini">取消</button>
-<button bindtap="postGood" class="btn-post" size="mini">发布</button>
+  <button bindtap="postGood" class="btn-post" size="mini">发布</button>
 </view>
 
 

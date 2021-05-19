@@ -9,18 +9,20 @@ Component({
       type: Object,
       value: {
         price: "99.99",
-        oldPrice: "100",
-        indexImage: "../../pic/skull-outline.svg",
-        goodsId: "",
-        shortComent: "暂无",
+        oldprice: "100",
+       gid: "",
         postDate: "",
-        goodsLocation: "暂无",
-        userUid: "",
+        place:"",
+        uid: "",
         userName: "",
         userHead: "../../image/1.jpg"
       }
     }
   },
+tabGood(e){
+  var gid = e.currentTarget.dataset.gid;
+  console.log(e);
+},
 
   /**
    * 组件的初始数据
