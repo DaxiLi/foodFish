@@ -11,7 +11,8 @@ weRequest.init({
     // [必填] 触发重新登录的条件，res为CGI返回的数据
     loginTrigger: function (res) {
         // 此处例子：当返回数据中的字段errcode等于-1，会自动触发重新登录
-        return res.errcode == -1;
+        return false;
+        // return res.errcode == -1;
     },
     // [必填] 用code换取session的CGI配置
     codeToSession: {

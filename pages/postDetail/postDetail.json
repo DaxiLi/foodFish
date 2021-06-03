@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "image-picker":"/miniprogram_npm/lin-ui/image-picker/index",
-    "price":"../../template/price/index"
+    "price":"../../template/price/index",
+    "l-input":"../../template/input/index"
   }
 }

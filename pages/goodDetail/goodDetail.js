@@ -12,6 +12,7 @@ Page({
     error:false,
     pastDifTime:null,
     fileUrl:getApp().globalData.fileUrl,
+    comment:"",
     good:{
       "userHead": getApp().globalData.fileUrl + "6ccfa2ae9266c81c2e1b9673bd6aa4941621180092.jpg",
       "userName": "小墨迹",
@@ -29,12 +30,45 @@ Page({
       "url": "2f64a67b3c17de36cf80ebbd15a7f92d1621320096.jpg",
       "slug": 102,
       "urls": [
-      "2f64a67b3c17de36cf80ebbd15a7f92d1621320096.jpg",
-      "2f64a67b3c17de36cf80ebbd15a7f92d1621320096.jpg",
-      "2f64a67b3c17de36cf80ebbd15a7f92d1621320096.jpg"
-      ]
+        "2f64a67b3c17de36cf80ebbd15a7f92d1621320096.jpg",
+        "2f64a67b3c17de36cf80ebbd15a7f92d1621320096.jpg",
+        "2f64a67b3c17de36cf80ebbd15a7f92d1621320096.jpg"
+      ],
+      comments:[{
+        headUrl:getApp().globalData.fileUrl + "6ccfa2ae9266c81c2e1b9673bd6aa4941621180092.jpg",
+        content:"真不错",
+        likes:12,
+        comments:20,
+        time:1621320096
+      }]
       },
-
+      
+  },
+  tabComment(e){
+    var val = e.detail.value;
+    if (val == "")
+    {
+      wx.showToast({
+        title: '不可发送空评论!',
+      });
+      return;
+    }
+    console.log(val);
+   this.data.comment = val;
+  },
+  tabPostComment(e){
+    netools.postComment(this.data.good.gid,this.data.good.uid, this.data.comment)
+    .then(res=>{
+      wx.showToast({
+        title: 'Success',
+      });
+      this.onPullDownRefresh();
+    }).catch(res=>{
+      wx.showToast({
+        title: 'fail',
+      });
+      console.log(res);
+    })
   },
   tabImage(e){
     console.log(e);
@@ -141,7 +175,22 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    netools.getGoodsByGid(this.data.good.gid)
+    .then(res=>{
+      res.userHead = getApp().globalData.fileUrl + res.userHead;
+      this.setData({
+        good:res
+      })
+      this.linkImage();
+      wx.stopPullDownRefresh({
+        success: (res) => {},
+      })
+    }).catch(res=>{
+      console.log(res);
+      this.setData({
+        error:true
+      })
+    })
   },
 
   /**

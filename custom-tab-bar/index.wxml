@@ -21,8 +21,8 @@
 
   <pop-show show="{{postPopShow}}" content-align="bottom">
     <view class="pop-show">
-      <button bindtap="tabPost">发布</button>
-      <button bindtap="tabCancel">取消</button>
+      <button class="left-btn" bindtap="tabPost">发布</button>
+      <button class="right-btn" bindtap="tabCancel">取消</button>
     </view>
   </pop-show>
 

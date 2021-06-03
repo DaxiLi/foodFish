@@ -1,8 +1,11 @@
 {
+
   "usingComponents": {
     "status-show":"../../template/status-show/index",
     "l-card":"../../template/card/index",
     "l-icon":"../../template/icon/index",
-    "l-tag":"../../template/tag/index"
-  }
+    "l-tag":"../../template/tag/index",
+    "l-input":"../../template/input/index"
+  },
+  "enablePullDownRefresh": true
 }

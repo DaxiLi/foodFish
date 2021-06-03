@@ -1,8 +1,31 @@
 import weRequest from './weRequest';
 // const urlAppend =;//getApp().globalData.fileUrl;
-
+const tools = require('./tools');
 const setting = require('./setting');
-const getGoodsByKey = function(key,p,s) {
+const postComment = function(gid,uid,val) {
+  return new Promise(function (rsolve, reject) {
+    var rurl = 'goods/comment';
+    console.log(rurl);
+    weRequest.request({
+      method: 'POST',
+      url: rurl,
+      showLoading: true,
+      data: {
+        "gid":gid,
+        "comment":val,
+        "uid":uid
+      },
+      success(data) {
+        console.log(data);
+        console.log(data);
+        rsolve(data);
+      },
+      fail(e) {
+        reject(e)
+      }
+    })
+  })
+},getGoodsByKey = function(key,p,s) {
   return new Promise(function (rsolve, reject) {
     var rurl = 'goods/search';
     console.log(rurl);
@@ -89,6 +112,10 @@ getGoodsByGid = function (gid){
         for (var i = 0; i < data.urls.length; i++) {
           data.urls[i] = setting.fileUrl + data.urls[i];
         }
+        for (var i = 0; i < data.comments.length; i++) {
+          data.comments[i].headUrl = setting.fileUrl + data.comments[i].headUrl;
+          data.comments[i].posttime = tools.getPastTime(data.comments[i].posttime);
+        }
         console.log(data);
         rsolve(data);
       },
@@ -170,5 +197,6 @@ export {
   getGoodsByGid,
   getGoodsByUid,
   delGood,
-  getGoodsByKey
+  getGoodsByKey,
+  postComment
 }

@@ -20,16 +20,33 @@
           <view class="number">{{good.commentsnum}}评论</view>
         </view>
       </view>
-      <!-- <l-tag  shape="circle" 
-                bg-color="#f3f3f3" 
-                font-color="#3963BC" 
-                slot="more"
-                size="large">
-                + 关注
-        </l-tag> -->
+
     </l-card>
   </view>
-
+<view class="post-comment">
+  <l-input bind:linblur="tabComment" bind:linconfirm="tabComment"  placeholder="请输入评论" type="text" maxlength="100" >
+  </l-input>
+  <view bindtap="tabPostComment">提交</view>
+</view>
+<view class="conment" wx:for="{{good.comments}}" wx:for-item="item">
+  <l-card type="avatar" l-class="card" image="{{item.headUrl}}"
+    title="{{item.nickname}}" describe="{{item.time}}">
+        <!-- 此处为content -->
+        <view class="avter-content">
+        {{item.content}}
+        </view>
+        <view class="avter-share-container">
+        <view class="like-container">
+            <l-icon name="like" color="#666" size="28" />
+            <view class="number">{{item.likes}}喜欢</view>
+        </view>
+        <view class="like-container">
+            <l-icon name="default" color="#666" size="28" />
+            <view class="number">{{otem.comments}}评论</view>
+        </view>
+        </view>
+  </l-card>
+</view>
 
 
 </view>

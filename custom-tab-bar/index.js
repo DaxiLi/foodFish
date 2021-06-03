@@ -10,13 +10,13 @@ Component({
         "iconPath": "/assest/icon/eye.png",
         "selectedIconPath": "/assest/icon/close.png"
       },
-      {
-        "pageName": "bbs",
-        "pagePath": "/pages/bbs/bbs",
-        "text": "发现",
-        "iconPath": "/assest/icon/ellipsis.png",
-        "selectedIconPath": "/assest/icon/close.png"
-      },
+      // {
+      //   "pageName": "bbs",
+      //   "pagePath": "/pages/bbs/bbs",
+      //   "text": "发现",
+      //   "iconPath": "/assest/icon/ellipsis.png",
+      //   "selectedIconPath": "/assest/icon/close.png"
+      // },
       {
         "pageName": "postPage",
         "pagePath": "/pages/postGoods/postGoods",
@@ -25,14 +25,14 @@ Component({
         "iconPath": "/assest/icon/add.png",
         "selectedIconPath": "/assest/icon/close.png"
       },
-      {
-        "pageName": "chatMsg",
-        "pagePath": "/pages/chatMsg/chatMsg",
-        "text": "消息",
-        "redDot": "3",
-        "iconPath": "/assest/icon/comment.png",
-        "selectedIconPath": "/assest/icon/close.png"
-      },
+      // {
+      //   "pageName": "chatMsg",
+      //   "pagePath": "/pages/chatMsg/chatMsg",
+      //   "text": "消息",
+      //   "redDot": "3",
+      //   "iconPath": "/assest/icon/comment.png",
+      //   "selectedIconPath": "/assest/icon/close.png"
+      // },
       {
         "pageName": "my",
         "pagePath": "/pages/my/my",
@@ -104,7 +104,7 @@ Component({
       console.log(e);
       console.log(index);
       const url = this.data.list[index].pagePath;
-      if (index == 2){
+      if (this.data.list[index].pageName == "postPage"){
         this.setData({
           postPopShow:true
         })

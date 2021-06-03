@@ -78,7 +78,26 @@
 
 image{
   border-radius: 12rpx;
-  margin-top: 20rpx;
-  margin-bottom: 20rpx;
+  margin: 20rpx;
+  /* margin-bottom: 20rpx; */
 }
 
+
+.post-comment{
+  margin-right:8%;
+  margin-left: 8%;
+  border: 3rpx;
+  /* min-width: 100rpx; */
+  /* height: 100rpx; */
+  display: flex;
+  flex-direction: row;
+}
+
+.post-comment input{
+  width: 70%;
+}
+
+.post-comment view{
+  width:20%;
+  height: 50rpx;
+}

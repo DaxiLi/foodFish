@@ -47,10 +47,14 @@
   height: 750rpx;
   /* margin-bottom: 106rpx; */
 }
-.pop-show button{
+.left-btn{
   margin: 50rpx;
   background-color: yellow;
   float: left;
 }
-
+.right-btn{
+  margin: 50rpx;
+  background-color: yellow;
+  float: right;
+}
 

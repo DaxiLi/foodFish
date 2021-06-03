@@ -287,7 +287,7 @@ Page({
         }
       })
     }
-    if (gid == -1){ // 从首页打开发布gid 为-1，直接跳过
+    if (options.gid == -1){ // 从首页打开发布gid 为-1，直接跳过
       return
     }
     let that = this;

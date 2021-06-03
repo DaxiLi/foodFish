@@ -1,7 +1,7 @@
 <!--pages/myDeals/myDeals.wxml-->
 <view id="my-deals" >
-  <view bindtap="tabGood" class="card" wx:for="{{dealList}}" wx:for-item="item" data-gid="{{item.gid}}">
-    <view class="card-good">
+  <view  class="card" wx:for="{{dealList}}" wx:for-item="item" data-gid="{{item.gid}}">
+    <view bindtap="tabGood" class="card-good">
       <image lazy-load="{{true}}" src="{{item.url}}" class="card-good-img" mode="aspectFill"></image>
       <view class="card-good-detail">
         <text class="card-good-detail-title">{{item.title}}</text>

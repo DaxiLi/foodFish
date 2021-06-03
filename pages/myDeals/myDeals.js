@@ -40,9 +40,11 @@ Page({
         } else {
           console.log('用户点击confirm');
           // edit
-          var key = e.currentTarget.dataset.key;
+          console.log(e.currentTarget.dataset.key);
+          var key = e.currentTarget.dataset.key.gid;
+          
           wx.navigateTo({
-            url: '../postDetail/postDetail?gid=' + key.gid,
+            url: '../postDetail/postDetail?gid=' + key,
           })
         }
       }
