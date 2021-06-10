@@ -37,6 +37,8 @@ weRequest.init({
                 key:"UID",
                 data:res.uid
             })
+            wx.setStorageSync('ADMIN', res.admin);
+            wx.setStorageSync('SADMIN', res.sadmin);
             // getApp().globalData.OPEN_ID = res.openId;
             console.log("login end")
             console.log(res.session);

@@ -51,6 +51,25 @@ const postComment = function(gid,uid,val) {
       }
     })
   })
+},delAdmin = function(uid){
+  return new Promise(function (rsolve, reject) {
+    var rurl = 'user/delAdmin?uid=' + uid ;
+    console.log(rurl);
+    weRequest.request({
+      method: 'POST',
+      url: rurl,
+      showLoading: true,
+      data:{
+        "uid":uid
+      },
+      success(data) {
+        rsolve(data);
+      },
+      fail(e) {
+        reject(e)
+      }
+    })
+  })
 },
 delGood = function(gid){
   return new Promise(function (rsolve, reject) {
@@ -171,6 +190,26 @@ getGoodsByGid = function (gid){
     })
 
 
+  }, addAdmin = function (uid) {
+    const APP = getApp();
+    console.log("add admin as uid = " + uid);
+    // 此方法不需要同步执行返回数据，只需要请求成功后将数据梵高globa data里面即可
+    return new Promise(function (resolve, reject) {
+      var vurl =  'user/addAdmin?uid=' + uid;
+      weRequest.request({
+        method: "GET",
+        url: vurl,
+        showLoading: true,
+        success: function (data) {
+          resolve(data);
+        },
+        fail: function (e) {
+          reject(e)
+        }
+      })
+    })
+
+
   },
   getPlaces = function () {
     // 此方法不需要同步执行返回数据，只需要请求成功后将数据梵高globa data里面即可
@@ -198,5 +237,7 @@ export {
   getGoodsByUid,
   delGood,
   getGoodsByKey,
-  postComment
+  postComment,
+  delAdmin,
+  addAdmin
 }

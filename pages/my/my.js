@@ -10,6 +10,8 @@ Page({
        * 页面的初始数据
        */
       data: {
+            admin:false,
+            sadmin:true,
             myDealGood: {
                   url: getApp().globalData.fileUrl + "9bfc99d13bd79328fd441e5f98babd3d1621181227.jpg",
                   title: "一只小乌龟",
@@ -56,6 +58,11 @@ Page({
             openid: '',
             roomlist: []
       },
+      tabAdminList: function () {
+            wx.navigateTo({
+                  url: '../adminList/adminList',
+            })
+      },
       tabmydeal: function () {
             wx.navigateTo({
                   url: '../myDeals/myDeals',
@@ -71,24 +78,31 @@ Page({
             weRequest.login();
             var uid = wx.getStorageSync('UID');
             console.log(uid);
-            weRequest.request({
-                  url: app.globalData.apiUrl,
-                  showLoading: true,
-                  data: {
-                        id: '123'
-                  },
-                  success: function (data) {
-                        console.log(data);
-                        wx.showToast({
-                              title: '登录成功',
-                        })
-                  },
-                  fail: function (res) {
-                        console.log("werequest fail");
-                        console.log(res);
-                  }
-            });
+            weRequest.login();
+            // weRequest.request({
+            //       url: app.globalData.apiUrl,
+            //       showLoading: true,
+            //       data: {
+            //             id: '123'
+            //       },
+            //       success: function (data) {
+            //             console.log(data);
+            //             wx.showToast({
+            //                   title: '登录成功',
+            //             })
+            //       },
+            //       fail: function (res) {
+            //             console.log("werequest fail");
+            //             console.log(res);
+            //       }
+            // });
 
+      },
+      tabCheckGood(e) {
+            console.log(e);
+            wx.navigateTo({
+              url: '/pages/checkDeals/checkDeals'
+            })
       },
       tabMyGood(e) {
             console.log(e);
@@ -119,12 +133,14 @@ Page({
             }
       },
       onLoad: function (options) {
+            console.log("my onload");
             if (wx.getUserProfile) {
                   this.setData({
                         canIUseGetUserProfile: true
                   })
             }
-            netools.getGoodsByUid(wx.getStorageSync('UID'), 1, 1)
+            var uid = wx.getStorageSync('UID');
+            netools.getGoodsByUid(uid, 1, 1)
                   .then(res => {
                         if (res.length != 0) {
                               this.setData({
@@ -137,5 +153,18 @@ Page({
                         }
 
                   })
+            var adm = wx.getStorageSync('ADMIN');
+            console.log(adm);
+            this.setData({
+                  admin:adm
+            })
+            var sadm = wx.getStorageSync('SADMIN');
+            console.log(sadm);
+            if (sadm == uid){
+                  this.setData({
+                    sadmin:true
+                    })  
+            }
+            
       },
 })

@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "card":"../../template/show-card/show-card",
-    "l-water-flow": "../../template/water-flow/index"
+    "l-water-flow": "../../template/water-flow/index",
+    "l-search-bar":"/miniprogram_npm/lin-ui/search-bar"
   }
 }

@@ -40,7 +40,17 @@
 
 	</view>
 	<view style="background-color:lightgrey;min-height:10rpx;max-height:10rpx;"></view>
+	<view wx:if="{{admin}}" class="my-deal">
+		<text>审核发布</text>
+		<icon bindtap="tabCheckGood" name="right"></icon>
 
+	</view>
+	<view style="background-color:lightgrey;min-height:10rpx;max-height:10rpx;"></view>
+	<view wx:if="{{sadmin}}" class="my-deal">
+		<text>管理员列表</text>
+		<icon bindtap="tabAdminList" name="right"></icon>
+
+	</view>
 
 	<button class="btn-login" type="primary" bind:tap="login">login</button>
 

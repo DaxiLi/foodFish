@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    searchText:"搜索",
     page:1,
     size:10,
     error:false,
@@ -37,6 +38,11 @@ Page({
     wx.setNavigationBarTitle({
       title: "搜索：" + key,
     })
+    this.setData(
+      {
+        searchText:key
+      }
+    )
     netools.getGoodsByKey(key, this.data.page, this.data.size)
     .then(res=>{
       if (res.length == 0) {
